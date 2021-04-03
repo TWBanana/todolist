@@ -1,0 +1,32 @@
+
+<%- include("header") -%>
+    <div class="box" id="heading">
+        <h1> <%= listTitle %> </h1>
+    </div>
+
+    <div class="box">
+        <!-- us for loop to adding the item in the newItems array -->
+        
+        <% newListItems.forEach(function (item) { %>
+            <form action="/delete" method="POST">
+                <div class="item">
+                    <!-- when the checkbox status changed, submit this form for a POST request 
+                    the value, "item_id" is bounded to the name "checkbox", so that we can have the deleted itme's id-->
+                    <input type="checkbox" name="checkbox" value="<%=item._id %>" onchange="this.form.submit()">
+                    <p><%=item.name%></p>
+                </div>
+                <!-- hidden type -->
+                <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+            </form>
+            
+        <% }) %>
+
+        <!-- send the input from the client to the server root, using POST request -->
+        <form class="item" action="/" method="POST">
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="list" value=<%= listTitle %>>+</button>
+        </form>
+
+    </div>
+    
+<%- include("footer") -%>
