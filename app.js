@@ -9,7 +9,8 @@ const mongoose = require("mongoose");
 // const date = require(__dirname + "/date.js");
 
 // setup connection to mongodb, using database name: "todolistDB"
-mongoose.connect("mongodb://localhost:27017/todolistDB", {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false})
+// instead of using localhost, replaced the string before "/todolist" with the string from mongodb atlas.
+mongoose.connect("mongodb+srv://kh388:kh388@cluster0.ndr6d.mongodb.net/todolistDB", {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false})
 
 // ejs template
 app.set("view engine", "ejs");
