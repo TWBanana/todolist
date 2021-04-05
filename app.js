@@ -56,7 +56,7 @@ const List = mongoose.model("List", listSchema);
 
 app.get("/", function(req, res) {
     
-    let day = date.getDate();
+    // let day = date.getDate();
 
     // find() will return an array
     Item.find({}, function(err, foundItems) {
